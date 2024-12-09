@@ -10,3 +10,12 @@ variable "key" {
     description = "Key information"
     default = "Key02"
 }
+variable "sg" {
+    description = "Security group information"
+    default = "sg-090fadce25b37b60d"
+}
+
+variable "region" {
+    description = "region information"
+    default = "us-east-1"
+}

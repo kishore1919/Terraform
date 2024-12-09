@@ -1,11 +1,21 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+  required_version = ">= 1.4.0"
+}
+
 provider "aws" {
-  region = "us-east-1"
+  region = var.region
 }
 
 resource "aws_instance" "Test" {
   ami           = var.ami
   instance_type = var.cpu
-  vpc_security_group_ids = ["sg-090fadce25b37b60d"]
+  vpc_security_group_ids = [var.sg]
   key_name = var.key
   user_data = "${file("u_data.sh")}"
 
