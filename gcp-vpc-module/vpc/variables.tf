@@ -4,6 +4,10 @@ variable "vpc_name" {
   default = "cisco-sec-con-vpc-1"
 }
 
+variable "region" {
+  description = "Name of The VPC being created"
+  type        = string
+}
 variable "auto_create_subnetworks" {
   type        = bool
   description = "When set to true, the network is created in 'auto subnet mode' and it will create a subnet for each region automatically across the 10.128.0.0/9 address range. When set to false, the network is created in 'custom subnet mode' so the user can explicitly connect subnetwork resources."
@@ -23,11 +27,9 @@ variable "delete_default_internet_gateway_routes" {
 
 variable "subnet_name" {
   type = string
-  default = "cisco-sec-con-subnet-1"
+  description = "Name of The Subnet being created"
 }
-
-variable"ip_cidr_range" {
-  type=string
-  description="List of The range of internal addresses that are owned by this subnetwork."
-  default="10.255.14.0/24"
+variable "ip_cidr_range" {
+  type = string
+  description = "List of The range of internal addresses that are owned by this subnetwork."
 }

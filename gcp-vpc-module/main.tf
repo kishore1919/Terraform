@@ -9,10 +9,11 @@ locals {
 
 module "vpc" {
   count        = local.count
-  source      = "./vpc"
-  vpc_name    = local.vpc_name[count.index]
-  subnet_name = local.subnet_name[count.index]
+  source       = "./vpc"
+  vpc_name     = local.vpc_name[count.index]
+  subnet_name  = local.subnet_name[count.index]
   ip_cidr_range = local.cidr[count.index]
+  region       = var.region
 }
 
 # module "vm" {
