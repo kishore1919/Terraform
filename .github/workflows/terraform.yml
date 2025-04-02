@@ -23,7 +23,7 @@ jobs:
 
    # Install Terraform
     - name: Install Terraform
-      working-directory: "Terraform-Learn/ECS_creation_with_2_tire_vpc"
+      working-directory: "ECS_creation_with_2_tire_vpc"
       run: |
         sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
         curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
