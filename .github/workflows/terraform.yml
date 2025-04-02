@@ -21,8 +21,18 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+   # Install Terraform
+    - name: Install Terraform
+      run: |
+        sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+        curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+        sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+        sudo apt-get update && sudo apt-get install -y terraform
+
+    # Change directory if your Terraform files are in a sub-directory
     - name: Change Directory and Run for Multiple Directories
       run: cd "ECS creation with 2 tire vpc"
+      
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
