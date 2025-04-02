@@ -21,6 +21,18 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+    - name: after directory Debug Checkout
+      working-directory: "ECS_creation_with_2_tire_vpc"
+      run: |
+        pwd
+        ls -la
+
+    - name: Debug Checkout
+      working-directory: "ECS_creation_with_2_tire_vpc"
+      run: |
+        pwd
+        ls -la
+
    # Install Terraform
     - name: Install Terraform
       working-directory: "ECS_creation_with_2_tire_vpc"
