@@ -1,6 +1,13 @@
-## Ollama Installation Guide
+## Ollama Installation Guide v2
 
 This guide outlines the steps to install Ollama using Helm on a Kubernetes cluster.
+
+### Prerequisites
+
+Before proceeding, ensure you have the following installed:
+
+*   Helm (version >= 3.0)
+*   kubectl (compatible with your Kubernetes cluster)
 
 ### Installation Steps
 
