@@ -1,0 +1,21 @@
+ollama:
+  gpu:
+    enabled: true
+    type: 'nvidia'
+    number: 1
+models:
+  pull:
+    - "gemma:7b"
+  resources:
+    requests:
+      cpu: "250m"   
+      memory: "8Gi" 
+    limits:
+      cpu: "1"      
+      memory: "10Gi" 
+persistentVolume:
+  enabled: true
+  size: 50Gi
+  storageClass: "standard-rwo"
+service:
+  port: 11434

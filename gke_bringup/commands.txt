@@ -1,0 +1,36 @@
+# Command to check the driver version
+cat << EOF | kubectl create -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nvidia-version-check
+spec:
+  restartPolicy: OnFailure
+  containers:
+  - name: nvidia-version-check
+    image: "nvidia/cuda:11.0.3-base-ubuntu20.04"
+    command: ["nvidia-smi"]
+    resources:
+      limits:
+         nvidia.com/gpu: "1"
+EOF
+
+kubectl logs pod/nvidia-version-check
+
+#Command to check the cuda version
+cat << EOF | kubectl create -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cuda-vectoradd
+spec:
+  restartPolicy: OnFailure
+  containers:
+  - name: cuda-vectoradd
+    image: "nvcr.io/nvidia/k8s/cuda-sample:vectoradd-cuda11.7.1-ubuntu20.04"
+    resources:
+      limits:
+        nvidia.com/gpu: 1
+EOF
+
+kubectl logs pod/cuda-vectoradd

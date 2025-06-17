@@ -1,0 +1,5 @@
+project_id      = ""  # Replace with your GCP project ID
+region          = ""    # This is a good default region, but you can change it if needed
+service_account = ""  # Replace with your service account email
+cluster_name    = ""  # Name for your GKE cluster
+credentials_file = ""  # Path to your GCP service account credentials JSON file, or set GOOGLE_CREDENTIALS env var

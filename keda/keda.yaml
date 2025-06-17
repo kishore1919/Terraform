@@ -1,0 +1,22 @@
+# Change the container name 
+kind: HTTPScaledObject
+apiVersion: http.keda.sh/v1alpha1
+metadata:
+    namespace: ollama
+    name: ollama
+spec:
+    hosts:
+    - ollama.ollama
+    scaleTargetRef:
+        name: ollama
+        kind: Deployment
+        apiVersion: apps/v1
+        service: ollama
+        port: 11434
+    replicas:
+        minReplicaCount: 0
+        maxReplicaCount: 2
+    scaledownCooldown: 60
+    scalingMetric:
+        requestRate:
+            targetValue: 1
