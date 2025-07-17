@@ -8,7 +8,7 @@ resource "aws_s3_object" "html_uploads" {
 
   bucket = aws_s3_bucket.example.id
 
-  key = "html/${each.value}"
+  key = each.value
 
   source = "html/${each.value}"
 

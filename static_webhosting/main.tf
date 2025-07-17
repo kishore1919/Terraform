@@ -42,15 +42,3 @@ resource "aws_s3_bucket_policy" "allow_cloudfront_oac" {
     }]
   })
 }
-
-resource "aws_s3_bucket_website_configuration" "example" {
-  bucket = aws_s3_bucket.example.id
-
-  index_document {
-    suffix = var.index_document_suffix
-  }
-
-  error_document {
-    key = var.error_document_key
-  }
-}
